@@ -3,3 +3,6 @@ a = 12
 b = 4
 print(f"The quotient of {a} and {b} is {a / b}")
 print("p4 executed....")
+
+import os
+os.system("python p5.py")
