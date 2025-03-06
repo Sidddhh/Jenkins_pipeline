@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-// Program1.java - Addition
+
 public class Program1 {
     public static void main(String[] args) {
         int a = 5, b = 3;
@@ -8,10 +8,18 @@ public class Program1 {
         System.out.println("Program 1: Addition");
         System.out.println("The sum of " + a + " and " + b + " is " + sum);
 
-        // Calling Program 2 (Subtraction)
+        // Calling next programs in sequence
+        runProgram("Program2");
+        runProgram("Program3");
+        runProgram("Program4");
+        runProgram("Program5");
+    }
+
+    public static void runProgram(String program) {
         try {
-            Runtime.getRuntime().exec("java Program2");
-        } catch (IOException e) {
+            Process process = new ProcessBuilder("java", program).inheritIO().start();
+            process.waitFor(); // Ensures sequential execution
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
