@@ -10,19 +10,13 @@ pipeline {
 
         stage('Compile Java Code') {
             steps {
-                bat 'javac -d . *.java'  // Compiles all Java files
-            }
-        }
-
-        stage('Verify Compilation') { // Debugging step
-            steps {
-                bat 'dir /B *.class'  // Lists compiled Java class files
+                bat 'javac -d . *.java'  // Compile all Java files
             }
         }
 
         stage('Run Main Program') {
             steps {
-                bat 'java Program1' // Runs Program1, which triggers Program2
+                bat 'java Program1' // Runs Program1, which triggers others sequentially
             }
         }
     }
