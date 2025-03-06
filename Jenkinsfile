@@ -11,13 +11,13 @@ pipeline {
 
         stage('Compile Java Code') {
             steps {
-                sh 'javac *.java'
+                bat 'javac *.java'
             }
         }
 
         stage('Run Main Program') {
             steps {
-                sh 'java Main'
+                bat 'java Main'
             }
         }
     }
